@@ -1,0 +1,11 @@
+{
+  "name": "oi-skills",
+  "version": "0.1.0",
+  "description": "A five-skill pipeline that takes a feature from idea to a reviewed feature branch: align, spec, slice, build, review, plus per-repo setup.",
+  "author": {
+    "name": "Jack Fields"
+  },
+  "homepage": "https://gitlab.com/ordinaryindustries/ai/skills",
+  "repository": "https://gitlab.com/ordinaryindustries/ai/skills",
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "ordinaryindustries",
+  "description": "Jack Fields' skills for Claude Code, from Ordinary Industries.",
+  "owner": {
+    "name": "Jack Fields"
+  },
+  "plugins": [
+    {
+      "name": "oi-skills",
+      "source": "./",
+      "description": "align, spec, slice, build and review: idea to reviewed feature branch, plus per-repo setup."
+    }
+  ]
+}
