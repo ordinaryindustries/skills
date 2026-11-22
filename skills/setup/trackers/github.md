@@ -13,7 +13,7 @@ The parent is an issue, slices are its sub-issues, and blocking uses issue depen
 
 ## Setup rules
 
-- **Status, per state**: use a Project Status option that matches ("In progress", "Blocked"). Failing that, use an existing status label. Failing that, create `status: in progress` or `status: blocked`. Ask which Project to use if more than one fits.
+- **Status, per state**: use a Project Status option that matches ("In progress", "Blocked"). Failing that, use an existing status label. Failing that, create `status: in progress` or `status: blocked`. If more than one Project fits, use the one that holds most of the repo's open issues; ask only if that doesn't single one out.
 - **Labels**: create `agent` and any default status labels if missing: `gh label create "<name>" --color <hex> --description "<description>"`.
 - Record every ID the template needs: Project number, Project node ID, Status field ID and option IDs. Other skills must never have to look one up.
 

@@ -26,18 +26,16 @@ Use a sub-agent for anything broad.
 
 Read the tracker file for each candidate tracker: `trackers/gitlab.md`, `trackers/github.md` or `trackers/local.md`, next to this file.
 
-Ask one question at a time. Number each one, give it a short title, list the options briefly and give your recommendation in one sentence. Phrase it so "yes" accepts your recommendation. Wait for the answer before asking the next one. Skip any question the facts already answer, and state the fact instead.
+Decide each value below from the facts and these rules. Don't ask about a value the rules decide; record it with a one-line reason, and the user reviews it in the draft. Ask only when the facts leave a real tie the rules can't break, or nothing to go on. Then ask one question at a time, with a short title, the options and your recommendation, phrased so "yes" accepts it.
 
-Settle these in order:
-
-1. **Tracker**: GitLab, GitHub or local. Recommend the one that matches the remote. Follow the tracker file's rules on unsupported setups.
-2. **Status**: in progress and blocked each map to the richest option the repo has. In order, that is the native Status field, the repo's existing status labels, then default labels setup creates. The two states may map to different options. Done always means closing the issue.
-3. **Check command**: one command that runs what CI runs, from the repo root. Recommend what you detected, chaining steps with `&&`. If there is no CI, recommend the project's own test command. Never write a script for it.
-4. **MCP alternative**: ask only if a tracker MCP server is connected. Recommend recording it as the alternative. The CLI stays the default.
+1. **Tracker**: the one that matches the remote. Follow the tracker file's rules on unsupported setups.
+2. **Status**: in progress and blocked each map to the richest option the repo has. In order, that is the native Status field, the repo's existing status labels, then default labels setup creates. The two states may map to different options. Among existing labels, prefer one in the same scope or prefix as the repo's other status labels, such as `status::blocked` over a plain `blocked`. Done always means closing the issue.
+3. **Check command**: one command that runs what CI runs, from the repo root, chaining steps with `&&`. If there is no CI, use the project's own test command. Ask only if you found neither. Never write a script for it.
+4. **MCP alternative**: if a tracker MCP server is connected, record it as the alternative. The CLI stays the default.
 
 ## 3. Draft
 
-Show everything you would write, in full:
+Start with the values you decided, each with its one-line reason, so the user can change any of them. Then show everything you would write, in full:
 
 - The pointer section (template below), and which agent file it goes into.
 - `docs/agents/tracker.md`: the chosen tracker file's template with this repo's values filled in.

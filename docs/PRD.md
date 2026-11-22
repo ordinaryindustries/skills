@@ -124,7 +124,7 @@ The generic skills live in one public GitLab repo, mirrored to GitHub, installab
 **Layout**
 
 ```
-ordinaryindustries/ai/skills
+ordinaryindustries/skills
 ├── .claude-plugin/
 │   ├── marketplace.json      # one plugin, source "./"
 │   └── plugin.json           # name, version, author
@@ -149,8 +149,8 @@ ordinaryindustries/ai/skills
 **Per-project setup.** Run `setup` once per repo. Only the user can start it (`disable-model-invocation: true`); other skills that find no config tell the user to run it.
 
 1. Explore the repo: remote, CI config, project files, existing labels, connected MCP servers.
-2. Settle the tracker, status mapping and check command, one question at a time, each with a recommendation.
-3. Draft everything: the CLAUDE.md section, each `docs/agents/` file, and any labels it would create. Write nothing until the user approves.
+2. Decide the tracker, status mapping and check command from what it found and its own rules. It asks only when the facts leave a real tie, one question at a time with a recommendation.
+3. Draft everything, starting with each decided value and its reason: the CLAUDE.md section, each `docs/agents/` file, and any labels it would create. Write nothing until the user approves.
 4. Write. A re-run updates setup's own section and files in place and leaves the rest alone.
 
 Output:
@@ -190,7 +190,7 @@ The CLI is the default. If setup finds a connected MCP server for the tracker, i
 
 **Releases.** Only the `version` field in `plugin.json` controls updates. No tags.
 
-**Hosting.** GitLab is the source. A GitLab push mirror keeps a read-only GitHub copy, so the public gets the short install form.
+**Hosting.** GitLab is the source. A GitLab push mirror keeps a read-only GitHub copy at `github.com/ordinaryindustries/skills`, so the public gets the short install form. Everything public-facing, the README and the plugin manifest, points only at GitHub.
 
 **License.** MIT. Anything adapted from Matt Pocock's skills keeps his copyright notice and MIT text; ideas taken without his text owe nothing, though he is credited.
 
