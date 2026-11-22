@@ -1,6 +1,6 @@
 ---
 name: slice
-description: Cut a frozen spec into vertical-slice issues, each one user-visible behavior with its modules, acceptance criteria and blockers, and create them once the user approves the cut. Use after spec, when the user asks to slice the work, create the issues or re-slice a parent that already has them.
+description: Cut a frozen spec into vertical-slice issues, each one user-visible behavior with its modules, acceptance criteria and blockers, and create them once the user approves the cut. Use after spec, when the user asks to slice the work, create the issues, add the issues for an approved amendment, or re-slice a parent that already has them.
 ---
 
 Cut the spec on a parent into vertical slices, so build can take each one through to a working feature.
@@ -11,6 +11,7 @@ The spec is frozen. Read it, never edit it. Nothing is created or changed until 
 
 - **Config**: read `docs/agents/tracker.md`. If it is missing, tell the user to run `setup` and stop.
 - **Input**: a parent. If the user didn't name one, ask which. Read its spec and any approved amendments through Read the parent.
+- **Amendments**: run Find approved. An amendment has issues once an issue's body names it. If an approved amendment has none yet, follow Amendment below for it instead of Existing issues, unless the user asked to re-slice.
 - **Existing issues**: run List issues. If the parent already has issues, follow Existing issues below.
 
 ## 2. Explore
@@ -49,6 +50,18 @@ Then list any spec criterion that no slice covers, or say that every one is cove
 
 Then give the user each issue's link or path, and tell them to run `build`.
 
+## Amendment
+
+An approved amendment only adds new issues. It never edits an existing one; only a re-slice does that.
+
+- **Cut**: run steps 2 and 3 for the amendment's change alone. The feature's existing path is the tracer, and each new issue widens it. Take the acceptance criteria from the amendment, and add a line naming it to each body (see the template).
+- **Affected**: the issues the amendment names. Each one that isn't done gets a blocked-by link to every new issue, added through the blocking link in Edit an issue. Leave its body as it is.
+- **Pointless**: an issue the amendment makes pointless is closed instead. If it was in progress, ask the user first.
+- **Approve**: show the new issues as in step 4, with the links to add and the issues to close. Nothing is created or changed until the user approves.
+- **Apply**: Create an issue for each new one, numbered after the existing ones, blockers first as in step 5. Then add the links. Close each pointless issue with Close as pointless, naming the amendment, and delete its issue branch if one exists: remove any worktree holding it, run `git branch -D`, and `git push origin --delete` if it is on the remote.
+
+Then give the user each new issue's link or path, and tell them to run `build`.
+
 ## Existing issues
 
 Show the parent's issues with their status. Offer three choices and recommend one, with the reason. The user has the final say.
@@ -68,6 +81,7 @@ For update and re-slice:
 
 ```markdown
 Spec: <parent link or path>.
+Amendment: <amendment link, path or title>. (Only on an issue an amendment adds.)
 
 **Behavior.** <what the user sees or does, end to end, in a sentence or two>
 
