@@ -57,7 +57,7 @@ A worker starts with none of this session's context. Its prompt carries:
 - Where the spec is, and the approved amendments to read with it.
 - The feature branch, and the issue branch name to use.
 - The check command from `docs/agents/checks.md`.
-- That `docs/agents/tracker.md` is the tracker file, and that it must follow its rules on where tracker files live. Local `.scratch/` lives only in the main checkout, never in a worktree.
+- That `docs/agents/tracker.md` is the tracker file, and that it must follow its rules on where tracker files live.
 - That it doesn't change issue status, merge or push. You do. The one exception is a hand-off.
 - That if you tell it to stop, it commits what it has on its issue branch and reports back.
 - That if you tell it to hand off, it stops and commits what it has, pushes its issue branch with `git push -u origin <issue branch>` unless `git remote` is empty, and leaves a handoff note through Comment: what's done, what's left and the issue branch. Then it reports back.
