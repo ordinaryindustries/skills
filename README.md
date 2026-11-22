@@ -20,7 +20,7 @@ You approve twice: the ticket cut, and the merge of the feature branch into main
 **Clone and link.** This is what I do on my own machine. Changes show up as soon as you pull.
 
 ```sh
-git clone https://gitlab.com/ordinaryindustries/ai/skills.git
+git clone https://github.com/ordinaryindustries/skills.git
 cd skills
 scripts/link.sh
 ```
@@ -40,13 +40,9 @@ Plugin skills are namespaced, so you get `oi-skills:align`, `oi-skills:spec`, an
 
 In each repo, run `setup` first. It writes a short section in `CLAUDE.md` (or `AGENTS.md`) and the details in `docs/agents/`. The other skills read those and tell you to run `setup` if they're missing. Then start new work with `align`.
 
-## Where it lives
-
-The source is [gitlab.com/ordinaryindustries/ai/skills](https://gitlab.com/ordinaryindustries/ai/skills). [github.com/ordinaryindustries/skills](https://github.com/ordinaryindustries/skills) is a read-only mirror. Send issues and merge requests to GitLab.
-
 ## Credits
 
-Made at [Ordinary Industries](https://ordinary.industries). Many of the ideas here, like grilling a plan before building it and cutting work into vertical slices, come from [Matt Pocock's skills](https://github.com/mattpocock/skills). The text here is my own.
+Made at [Ordinary Industries](https://ordinary.industries). Many of the ideas here, like grilling a plan before building it and cutting work into vertical slices, come from [Matt Pocock's skills](https://github.com/mattpocock/skills).
 
 ## License
 
